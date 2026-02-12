@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.0 on win32)" generated="2026-01-14T12:59:59.762309" rpa="false" schemaversion="5">
+<suite id="s1" name="Uds Frame" source="D:\Desktop file\RobotFrame\Genesis\UDS frame\uds_frame.robot">
+<test id="s1-t1" name="Test Case 01: Diagnostic Session Control" line="10">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T12:59:59.975612" elapsed="0.207648"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-14T13:00:00.184496" level="INFO">TX UDS Request: Session Control (0x10) Sub-Function=0x03</msg>
+<arg>TX UDS Request: Session Control (0x10) Sub-Function=0x03</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-14T13:00:00.183780" elapsed="0.001039"/>
+</kw>
+<kw name="Send Uds Request" owner="PCANLibrary">
+<arg>0x10</arg>
+<arg>0x03</arg>
+<doc>Sends a UDS Single Frame request with formatted hex inputs.</doc>
+<status status="PASS" start="2026-01-14T13:00:00.185209" elapsed="0.000278"/>
+</kw>
+<kw name="Read Uds Response" owner="PCANLibrary">
+<msg time="2026-01-14T13:00:00.643611" level="INFO">${RX_ID} = 0x7ec</msg>
+<msg time="2026-01-14T13:00:00.643723" level="INFO">${RX_DATA} = ['0x06', '0x50', '0x03', '0x00', '0x32', '0x13', '0x88', '0x00']</msg>
+<var>${RX_ID}</var>
+<var>${RX_DATA}</var>
+<arg>expected_id=0x7EC</arg>
+<doc>Reads response and returns ID and Data in Hexadecimal string format.</doc>
+<status status="PASS" start="2026-01-14T13:00:00.185809" elapsed="0.457955"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-14T13:00:00.645128" level="INFO">RX CAN ID: 0x7ec</msg>
+<arg>RX CAN ID: ${RX_ID}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-14T13:00:00.644449" elapsed="0.001071"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-14T13:00:00.646544" level="INFO">RX CAN Data: ['0x06', '0x50', '0x03', '0x00', '0x32', '0x13', '0x88', '0x00']</msg>
+<arg>RX CAN Data: ${RX_DATA}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-14T13:00:00.645921" elapsed="0.000960"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T13:00:00.647235" elapsed="0.287854"/>
+</kw>
+<status status="PASS" start="2026-01-14T12:59:59.946619" elapsed="0.989006"/>
+</test>
+<test id="s1-t2" name="Test Case 02: Standard CAN Frame TX" line="21">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T13:00:00.937469" elapsed="0.201399"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-14T13:00:01.140076" level="INFO">TX CAN ID: 0x100</msg>
+<arg>TX CAN ID: 0x100</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-14T13:00:01.139408" elapsed="0.001041"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-14T13:00:01.141438" level="INFO">TX CAN Data: ['0x02', '0x10', '0x01', '0x00', '0x00', '0x00', '0x00', '0x00']</msg>
+<arg>TX CAN Data: ${TX_DATA}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-14T13:00:01.140941" elapsed="0.000779"/>
+</kw>
+<kw name="Send Can Single Frame" owner="PCANLibrary">
+<arg>0x100</arg>
+<arg>${TX_DATA}</arg>
+<doc>Sends a single frame using ID and data (handles hex or decimal).</doc>
+<status status="PASS" start="2026-01-14T13:00:01.142081" elapsed="0.000339"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T13:00:01.142693" elapsed="0.299275"/>
+</kw>
+<status status="PASS" start="2026-01-14T13:00:00.936812" elapsed="0.505902"/>
+</test>
+<test id="s1-t3" name="Test Case 03: Multiple Frame TX" line="28">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T13:00:01.446201" elapsed="0.169694"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-14T13:00:01.616946" level="INFO">TX CAN ID: 0x101</msg>
+<arg>TX CAN ID: 0x101</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-14T13:00:01.616341" elapsed="0.000909"/>
+</kw>
+<kw name="Send Can Single Frame" owner="PCANLibrary">
+<arg>0x101</arg>
+<arg>${TX_DATA}</arg>
+<doc>Sends a single frame using ID and data (handles hex or decimal).</doc>
+<status status="PASS" start="2026-01-14T13:00:01.617673" elapsed="0.000357"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T13:00:01.618362" elapsed="0.288154"/>
+</kw>
+<status status="PASS" start="2026-01-14T13:00:01.444862" elapsed="0.462044"/>
+</test>
+<test id="s1-t4" name="Test Case 04: Final Frame TX" line="34">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T13:00:01.908455" elapsed="0.184284"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-01-14T13:00:02.093747" level="INFO">TX CAN ID: 0x102</msg>
+<arg>TX CAN ID: 0x102</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-01-14T13:00:02.093269" elapsed="0.000769"/>
+</kw>
+<kw name="Send Can Single Frame" owner="PCANLibrary">
+<arg>0x102</arg>
+<arg>${TX_DATA}</arg>
+<doc>Sends a single frame using ID and data (handles hex or decimal).</doc>
+<status status="PASS" start="2026-01-14T13:00:02.094476" elapsed="0.000412"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="PASS" start="2026-01-14T13:00:02.095192" elapsed="0.323216"/>
+</kw>
+<status status="PASS" start="2026-01-14T13:00:01.907853" elapsed="0.511054"/>
+</test>
+<status status="PASS" start="2026-01-14T12:59:59.764366" elapsed="2.655848"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Uds Frame" id="s1" pass="4" fail="0" skip="0">Uds Frame</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

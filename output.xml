@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.0 on win32)" generated="2026-02-12T12:43:58.014660" rpa="false" schemaversion="5">
+<suite id="s1" name="Uds Frame" source="D:\Desktop file\RobotFrame\Genesis\UDS frame\uds_frame.robot">
+<test id="s1-t1" name="Test Case 01: Single frame" line="10">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<msg time="2026-02-12T12:43:58.179713" level="FAIL">PCAN init failed: 0x200</msg>
+<status status="FAIL" start="2026-02-12T12:43:58.107852" elapsed="0.072889">PCAN init failed: 0x200</status>
+</kw>
+<kw name="Send Uds Request" owner="PCANLibrary">
+<arg>0x10</arg>
+<arg>0x03</arg>
+<status status="NOT RUN" start="2026-02-12T12:43:58.181336" elapsed="0.000062"/>
+</kw>
+<kw name="Read Uds Response" owner="PCANLibrary">
+<var>${RX_ID}</var>
+<var>${RX_DATA}</var>
+<arg>expected_id=0x7EC</arg>
+<status status="NOT RUN" start="2026-02-12T12:43:58.181836" elapsed="0.000033"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>RX CAN ID: ${RX_ID}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.182113" elapsed="0.000029"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>RX CAN Data: ${RX_DATA}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.182415" elapsed="0.000030"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="NOT RUN" start="2026-02-12T12:43:58.182729" elapsed="0.000030"/>
+</kw>
+<status status="FAIL" start="2026-02-12T12:43:58.106234" elapsed="0.076884">PCAN init failed: 0x200</status>
+</test>
+<test id="s1-t2" name="Test Case 02:" line="18">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<msg time="2026-02-12T12:43:58.261256" level="FAIL">PCAN init failed: 0x200</msg>
+<status status="FAIL" start="2026-02-12T12:43:58.184892" elapsed="0.076925">PCAN init failed: 0x200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>TX CAN ID: 0x100</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.262340" elapsed="0.000061"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>TX CAN Data: ${TX_DATA}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.262759" elapsed="0.000034"/>
+</kw>
+<kw name="Send Can Single Frame" owner="PCANLibrary">
+<arg>0x100</arg>
+<arg>${TX_DATA}</arg>
+<status status="NOT RUN" start="2026-02-12T12:43:58.263134" elapsed="0.000031"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="NOT RUN" start="2026-02-12T12:43:58.263426" elapsed="0.000030"/>
+</kw>
+<status status="FAIL" start="2026-02-12T12:43:58.184343" elapsed="0.079445">PCAN init failed: 0x200</status>
+</test>
+<test id="s1-t3" name="Test Case 03:" line="25">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<msg time="2026-02-12T12:43:58.339819" level="FAIL">PCAN init failed: 0x200</msg>
+<status status="FAIL" start="2026-02-12T12:43:58.265715" elapsed="0.074766">PCAN init failed: 0x200</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>TX CAN ID: 0x201</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.340973" elapsed="0.000050"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>TX CAN Data: ${TX_DATA1}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.341466" elapsed="0.000042"/>
+</kw>
+<kw name="Send Can Single Frame" owner="PCANLibrary">
+<arg>0x201</arg>
+<arg>${TX_DATA1}</arg>
+<status status="NOT RUN" start="2026-02-12T12:43:58.341835" elapsed="0.000032"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="NOT RUN" start="2026-02-12T12:43:58.342118" elapsed="0.000025"/>
+</kw>
+<status status="FAIL" start="2026-02-12T12:43:58.265111" elapsed="0.077354">PCAN init failed: 0x200</status>
+</test>
+<test id="s1-t4" name="Test Case 04:" line="32">
+<kw name="Initialize Pcan" owner="PCANLibrary">
+<msg time="2026-02-12T12:43:58.459875" level="FAIL">PCAN init failed: 0x200</msg>
+<status status="FAIL" start="2026-02-12T12:43:58.348794" elapsed="0.111626">PCAN init failed: 0x200</status>
+</kw>
+<kw name="Send Uds Request" owner="PCANLibrary">
+<arg>0x10</arg>
+<arg>0x01</arg>
+<status status="NOT RUN" start="2026-02-12T12:43:58.460819" elapsed="0.000038"/>
+</kw>
+<kw name="Read Uds Response" owner="PCANLibrary">
+<var>${RX_ID}</var>
+<var>${RX_DATA}</var>
+<arg>expected_id=0x7EC</arg>
+<status status="NOT RUN" start="2026-02-12T12:43:58.461287" elapsed="0.000050"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>RX CAN ID: ${RX_ID}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.461695" elapsed="0.000027"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>RX CAN Data: ${RX_DATA}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-02-12T12:43:58.461967" elapsed="0.000025"/>
+</kw>
+<kw name="Uninitialize Pcan" owner="PCANLibrary">
+<status status="NOT RUN" start="2026-02-12T12:43:58.462222" elapsed="0.000023"/>
+</kw>
+<status status="FAIL" start="2026-02-12T12:43:58.344621" elapsed="0.117956">PCAN init failed: 0x200</status>
+</test>
+<status status="FAIL" start="2026-02-12T12:43:58.017158" elapsed="0.446953"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Uds Frame" id="s1" pass="0" fail="4" skip="0">Uds Frame</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
